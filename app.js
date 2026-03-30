@@ -1,18 +1,23 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors"
 
 import connectDB from "./config/db.js";
 import HttpError from "./middleware/HttpError.js";
+import blogRoutes from "./routes/blogRoutes.js"
 
 dotenv.config({ path: "./.env" });
 
 const app = express();
+app.use(cors(),)
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.status(200).json("Hello from sever");
 });
+
+app.use("/blog", blogRoutes)
 
 app.use((req, res, next) => {
   next(new HttpError("Requested routes not found", 404));

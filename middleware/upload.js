@@ -17,8 +17,6 @@ const storage = new CloudinaryStorage({
         "png",
         "webp",
         "mp4",
-        "mov",
-        "avi",
         "mkv",
       ],
       transformation: isVideo
