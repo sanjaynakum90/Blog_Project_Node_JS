@@ -29,55 +29,31 @@ Supports CRUD operations, authentication, and file uploads.
 
 ## 🔹 Server Check
 
-![Server Check](https://raw.githubusercontent.com/your-username/your-repo/main/screenshots/server-check.png)
+<img width="1873" height="889" alt="Screenshot 2026-04-01 142906" src="https://github.com/user-attachments/assets/5f100022-2016-43cc-8f1a-0b9386691453" />
 
 ---
 
 ## 🔹 Create Blog
 
-![Create Blog](https://raw.githubusercontent.com/your-username/your-repo/main/screenshots/create-blog.png)
+<img width="1888" height="948" alt="Screenshot 2026-04-01 142813" src="https://github.com/user-attachments/assets/628947bc-39f2-4cbc-aca6-bc349462188a" />
 
 ---
 
 ## 🔹 Get All Blogs
 
-![Get All Blogs](https://raw.githubusercontent.com/your-username/your-repo/main/screenshots/get-all-blogs.png)
+<img width="1891" height="883" alt="Screenshot 2026-04-01 143251" src="https://github.com/user-attachments/assets/8e7c8bf0-f6df-4e18-9fd4-1757eadb3c56" />
 
 ---
 
 ## 🔹 Get Single Blog
 
-![Get Single Blog](https://raw.githubusercontent.com/your-username/your-repo/main/screenshots/get-single-blog.png)
+<img width="1868" height="936" alt="Screenshot 2026-04-01 143407" src="https://github.com/user-attachments/assets/b526ab17-ab8e-47da-9d29-4fb94e573b53" />
 
 ---
 
 ## 🔹 Update Blog
 
-![Update Blog](https://raw.githubusercontent.com/your-username/your-repo/main/screenshots/update-blog.png)
-
----
-
-## 🔹 Error (Unexpected Field)
-
-![Error](https://raw.githubusercontent.com/your-username/your-repo/main/screenshots/error-unexpected-field.png)
-
----
-
-## 🔹 User Register
-
-![User Register](https://raw.githubusercontent.com/your-username/your-repo/main/screenshots/user-register.png)
-
----
-
-## 🔹 User Login
-
-![User Login](https://raw.githubusercontent.com/your-username/your-repo/main/screenshots/user-login.png)
-
-  * `blogImage`
-  * `blogVideo`
-* Ensure correct **form-data keys**
-
----
+<img width="1908" height="958" alt="Screenshot 2026-04-01 150527" src="https://github.com/user-attachments/assets/2696aad9-908a-4cb4-961d-7797051fb6da" />
 
 ## 📦 Installation
 
