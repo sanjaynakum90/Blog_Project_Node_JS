@@ -1,31 +1,16 @@
 # 📝 Blog & User Management API
 
 A RESTful API built with Node.js and Express for managing blogs and users.
-This project supports CRUD operations for blogs, user authentication, and file uploads (images & videos).
+Supports CRUD operations, authentication, and file uploads.
 
 ---
 
 ## 🚀 Features
 
-### 👤 User Module
-
-* Register a new user
-* Login user
-* Password hashing for security
-* Role-based user data
-
-### 📰 Blog Module
-
-* Create blog (with image & video upload)
-* Get all blogs
-* Get single blog by ID
-* Update blog
-* Delete blog
-
-### 📁 File Uploads
-
-* Image upload (Cloudinary)
-* Video upload support
+* User Registration & Login
+* Blog CRUD Operations
+* Image & Video Upload (Cloudinary)
+* Secure Password Handling
 
 ---
 
@@ -33,100 +18,89 @@ This project supports CRUD operations for blogs, user authentication, and file u
 
 * Node.js
 * Express.js
-* MongoDB + Mongoose
-* Multer (file upload)
-* Cloudinary (media storage)
-* JWT (Authentication)
+* MongoDB
+* Mongoose
+* Multer
+* Cloudinary
+* JWT
 
 ---
 
-## 📂 API Endpoints
+# 📸 API Testing (Postman)
 
-### 🔹 User APIs
+## 🔹 1. Server Check
 
-| Method | Endpoint      | Description   |
-| ------ | ------------- | ------------- |
-| POST   | `/user/add`   | Register user |
-| POST   | `/user/login` | Login user    |
+![Image](https://voyager.postman.com/gif/request-reponse-validation-1-postman.gif)
 
----
-
-### 🔹 Blog APIs
-
-| Method | Endpoint           | Description     |
-| ------ | ------------------ | --------------- |
-| GET    | `/blog/`           | Check server    |
-| POST   | `/blog/add`        | Create blog     |
-| GET    | `/blog/allBlogs`   | Get all blogs   |
-| GET    | `/blog/:id`        | Get single blog |
-| PATCH  | `/blog/update/:id` | Update blog     |
-| DELETE | `/blog/delete/:id` | Delete blog     |
+![Image](https://miro.medium.com/v2/resize%3Afit%3A1400/1%2AQAgP13Tcg86Y1dr728eM8Q.png)
 
 ---
 
-## 📥 Request Examples
+## 🔹 2. Create Blog (POST)
 
-### ✅ Create Blog
+![Image](https://blog.bytescale.com/content/images/2022/05/Untitled-6.webp)
 
-**POST** `/blog/add`
+![Image](https://i.sstatic.net/955xK.png)
 
 **Form-Data:**
 
-```
-title: xyz1
-content: xyz3
-author: xyz2
-blogImage: (file)
-blogVideo: (file)
-```
+* title
+* content
+* author
+* blogImage (file)
+* blogVideo (file)
 
 ---
 
-### ✅ Update Blog
+## 🔹 3. Get All Blogs
 
-**PATCH** `/blog/update/:id`
+![Image](https://i.sstatic.net/P6PN9.png)
 
-```
-title: Start Your Day Early
-content: Updated content here
-```
+![Image](https://us1.discourse-cdn.com/getpostman/original/3X/5/c/5c4a9769ba4e44150dc88ac9233ec44ece5b7d61.png)
 
 ---
 
-### ✅ User Registration
+## 🔹 4. Get Single Blog
 
-**POST** `/user/add`
+![Image](https://us1.discourse-cdn.com/getpostman/original/3X/0/6/0621cb5081e05d2fc2b56ec9e450100ddc669e2a.jpeg)
 
-```json
-{
-  "name": "alice",
-  "email": "alice@gmail.com",
-  "password": "1234567890",
-  "phone": "12344321"
-}
-```
+![Image](https://assets.postman.com/postman-docs/ramen-script.png)
 
 ---
 
-### ✅ User Login
+## 🔹 5. Update Blog
 
-**POST** `/user/login`
+![Image](https://us1.discourse-cdn.com/getpostman/optimized/2X/3/32b050e24948826236e09beb3b597091af01a6b6_2_690x396.png)
 
-```json
-{
-  "email": "alice@gmail.com",
-  "password": "1234567890"
-}
-```
+![Image](https://us1.discourse-cdn.com/getpostman/original/3X/4/b/4b57b1bd5642a1ecb59e57222ab63d1ae3d08025.png)
 
 ---
 
-## ⚠️ Common Issues
+## 🔹 6. User Registration
 
-### ❌ "Unexpected field" Error
+![Image](https://i.sstatic.net/Tpoz5.png)
 
-* Make sure your field names match exactly with backend (e.g. `blogImage`, `blogVideo`)
-* Check Multer configuration
+![Image](https://community.postman.com/uploads/short-url/lBOhMEePR0G87DwsWAtr4CR2VyN.png)
+
+---
+
+## 🔹 7. User Login
+
+![Image](https://developers.onelogin.com/assets/img/pages/quickstart/using-postman/image07.png)
+
+![Image](https://us1.discourse-cdn.com/getpostman/original/3X/a/1/a1d4b9cb9cb3a98a8276790baf4510377a19903b.png)
+
+---
+
+## ⚠️ Common Errors
+
+### ❌ Unexpected Field
+
+* Check Multer field names:
+
+  * `blogImage`
+  * `blogVideo`
+* Ensure correct **form-data keys**
 
 ---
 
@@ -140,7 +114,7 @@ npm install
 
 ---
 
-## ▶️ Run Project
+## ▶️ Run
 
 ```bash
 npm start
@@ -149,8 +123,6 @@ npm start
 ---
 
 ## 🌐 Environment Variables
-
-Create a `.env` file:
 
 ```
 PORT=5000
@@ -163,21 +135,12 @@ CLOUDINARY_API_SECRET=your_secret
 
 ---
 
-## 📌 Future Improvements
-
-* Add pagination for blogs
-* Add comments & likes
-* Improve validation
-* Add Swagger documentation
-
----
-
 ## 👨‍💻 Author
 
-**Sanjay Nakum**
+Sanjay Nakum
 
 ---
 
 ## ⭐ Support
 
-If you like this project, give it a ⭐ on GitHub!
+Give a ⭐ if you like this project!
