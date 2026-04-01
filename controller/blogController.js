@@ -87,50 +87,61 @@ const deleteBlog = async (req, res, next) => {
         next(new HttpError(error.message))
     }
 }
-
 const updateBlogData = async (req, res, next) => {
     try {
         const id = req.params.id;
 
-        const blog = await Blog.findById(id)
+        // Find blog
+        const blog = await Blog.findById(id);
 
         if (!blog) {
-            return next(new HttpError("requested blog not found with this id", 404))
+            return next(new HttpError("Requested blog not found with this id", 404));
         }
 
-
+        // Fields user wants to update
         const updates = Object.keys(req.body);
 
-        const allowedUpdate = ["title", "content", "blogImage"]
+        // Allowed fields
+        const allowedUpdate = ["title", "content"];
 
-        const isValid = updates.every((field) => {
+        // Validate updates
+        const isValid = updates.every((field) =>
             allowedUpdate.includes(field)
-        })
+        );
 
         if (!isValid) {
-            return next(new HttpError("only allowed field can be updated", 400))
+            return next(new HttpError("Only allowed fields can be updated", 400));
         }
 
+        // Apply updates
+        updates.forEach((field) => {
+            blog[field] = req.body[field];
+        });
 
-        updates.forEach((update) => {
-            blog[update] = req.body[update]
-        })
-
-
+        // Handle image upload (if provided)
         if (req.file) {
-            await cloudinary.uploader.destroy(blog.cloudinary_id)
+            // Delete old image from cloudinary (if exists)
+            if (blog.cloudinary_id) {
+                await cloudinary.uploader.destroy(blog.cloudinary_id);
+            }
 
+            // Save new image
             blog.image = req.file.path;
-
-            blog.cloudinary_id = req.file.filename
+            blog.cloudinary_id = req.file.filename;
         }
 
-        await blog.save()
+        // Save updated blog
+        await blog.save();
 
-        res.status(200).json({ success: true, blog })
+        res.status(200).json({
+            success: true,
+            message: "Blog updated successfully",
+            blog
+        });
+
     } catch (error) {
-        return next(new HttpError("requested blog not found with this id", 404))
+        console.error(error);
+        return next(new HttpError("Something went wrong", 500));
     }
-}
-
+};
 export default { createBlog, getAllBlog, getBlogById, deleteBlog, updateBlogData };

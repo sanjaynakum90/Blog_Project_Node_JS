@@ -16,6 +16,7 @@ router.post(
 
 router.get("/allBlogs", blogController.getAllBlog);
 
+
 router.get("/:id", blogController.getBlogById);
 
 router.patch(
@@ -24,7 +25,7 @@ router.patch(
     { name: "blogImage", maxCount: 1 },
     { name: "blogVideo", maxCount: 1 },
   ]),
-  blogController.updateBlogData,
+  blogController.updateBlogDatao,
 );
 
 router.delete("/delete/:id", blogController.deleteBlog);
