@@ -24,7 +24,7 @@ router.patch(
     { name: "blogImage", maxCount: 1 },
     { name: "blogVideo", maxCount: 1 },
   ]),
-  blogController.updateBlog,
+  blogController.updateBlogData,
 );
 
 router.delete("/delete/:id", blogController.deleteBlog);
