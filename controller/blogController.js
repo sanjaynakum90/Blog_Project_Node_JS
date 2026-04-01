@@ -91,20 +91,16 @@ const updateBlogData = async (req, res, next) => {
     try {
         const id = req.params.id;
 
-        // Find blog
         const blog = await Blog.findById(id);
 
         if (!blog) {
             return next(new HttpError("Requested blog not found with this id", 404));
         }
 
-        // Fields user wants to update
         const updates = Object.keys(req.body);
 
-        // Allowed fields
         const allowedUpdate = ["title", "content"];
 
-        // Validate updates
         const isValid = updates.every((field) =>
             allowedUpdate.includes(field)
         );
@@ -113,24 +109,19 @@ const updateBlogData = async (req, res, next) => {
             return next(new HttpError("Only allowed fields can be updated", 400));
         }
 
-        // Apply updates
         updates.forEach((field) => {
             blog[field] = req.body[field];
         });
 
-        // Handle image upload (if provided)
         if (req.file) {
-            // Delete old image from cloudinary (if exists)
             if (blog.cloudinary_id) {
                 await cloudinary.uploader.destroy(blog.cloudinary_id);
             }
 
-            // Save new image
             blog.image = req.file.path;
             blog.cloudinary_id = req.file.filename;
         }
 
-        // Save updated blog
         await blog.save();
 
         res.status(200).json({
